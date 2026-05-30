@@ -1,0 +1,111 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title="WebGrowth | Advanced AI SEO & Guest Posting" description="Human-led, AI-powered SEO solutions" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	</head>
+	<body class="bg-white text-gray-900 font-sans">
+		<Header />
+
+		<!-- 1. Hero Section (Animated & Human Centric) -->
+		<section class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900 text-white">
+			<div class="absolute inset-0 opacity-40">
+				<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Professional SEO Team" />
+			</div>
+			<div class="relative z-10 text-center px-4 animate__animated animate__fadeInUp">
+				<h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+					Rank #1 with <span class="text-blue-500">Human Intelligence</span> <br/> & AI Precision
+				</h1>
+				<p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300">
+					We don't just build backlinks; we build authority. Premium Guest Posting and Technical SEO for visionary brands.
+				</p>
+				<div class="flex gap-4 justify-center">
+					<a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">Get Started</a>
+					<a href="/tools" class="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">Try AI Tools</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- 2. Trust Section (MSN, Forbes, etc.) -->
+		<section class="py-12 bg-gray-50 border-b">
+			<div class="max-w-7xl mx-auto px-4">
+				<p class="text-center text-gray-500 font-semibold mb-8">AS FEATURED IN</p>
+				<div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+					<span class="text-3xl font-bold">FORBES</span>
+					<span class="text-3xl font-bold">MSN</span>
+					<span class="text-3xl font-bold">BUSINESS INSIDER</span>
+					<span class="text-3xl font-bold">ENTREPRENEUR</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- 3. Services Section (Grid with Icons) -->
+		<section id="services" class="py-24 max-w-7xl mx-auto px-4">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold mb-4">Our Premium Services</h2>
+				<div class="h-1 w-20 bg-blue-600 mx-auto"></div>
+			</div>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="p-8 border rounded-2xl hover:shadow-2xl transition-all group">
+					<div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
+					<h3 class="text-2xl font-bold mb-4">High DA Guest Posting</h3>
+					<p class="text-gray-600">Manual outreach to high-authority sites. No PBNs, just pure organic power.</p>
+				</div>
+				<div class="p-8 border rounded-2xl hover:shadow-2xl transition-all group bg-blue-600 text-white">
+					<div class="text-4xl mb-4">🤖</div>
+					<h3 class="text-2xl font-bold mb-4">Technical AI SEO</h3>
+					<p class="text-blue-100">AI-driven audits and on-page optimization to satisfy Google's latest algorithms.</p>
+				</div>
+				<div class="p-8 border rounded-2xl hover:shadow-2xl transition-all group">
+					<div class="text-4xl mb-4">📈</div>
+					<h3 class="text-2xl font-bold mb-4">Authority Building</h3>
+					<p class="text-gray-600">Strategic content marketing that turns your website into an industry leader.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. Testimonials (Animated Left to Right Marquee) -->
+		<section class="py-20 bg-slate-900 overflow-hidden">
+			<h2 class="text-white text-center text-3xl font-bold mb-12">Trusted by Professionals Globally</h2>
+			<div class="flex animate-marquee space-x-8">
+				<!-- Testimonial 1 -->
+				{[1,2,3,4,5,6].map((i) => (
+					<div class="flex-shrink-0 w-80 bg-white p-6 rounded-xl shadow-lg">
+						<div class="flex items-center mb-4">
+							<img src={`https://i.pravatar.cc/150?u=${i}`} class="w-12 h-12 rounded-full mr-4" alt="Client"/>
+							<div>
+								<h4 class="font-bold text-sm">John Doe</h4>
+								<p class="text-xs text-blue-600">CEO, TechStream</p>
+							</div>
+						</div>
+						<div class="text-yellow-400 mb-2">★★★★★</div>
+						<p class="text-gray-600 text-sm italic">"WebGrowth completely transformed our SEO strategy. Our traffic increased by 300% in just 3 months!"</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<Footer />
+
+		<style>
+			@keyframes marquee {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
+			.animate-marquee {
+				display: flex;
+				width: 200%;
+				animation: marquee 20s linear infinite;
+			}
+			.animate-marquee:hover {
+				animation-play-state: paused;
+			}
+		</style>
+	</body>
+</html>

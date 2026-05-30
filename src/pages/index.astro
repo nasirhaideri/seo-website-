@@ -1,49 +1,183 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const inventory = [
+  { site: "TechRadar.com", da: 92, traffic: "2.5M", cat: "Technology", price: "$499" },
+  { site: "BusinessInsider.com", da: 94, traffic: "10M", cat: "Business", price: "$850" },
+  { site: "Forbes.com", da: 95, traffic: "15M", cat: "Enterprise", price: "$1200" }
+];
+
+const testimonials = [
+  {
+    name: "Sean Pomory",
+    role: "Digital Media Specialist at Healthcare",
+    img: "https://i.pravatar.cc/150?u=sean",
+    text: "Our Google Business Profile traffic has increased drastically over the past three years. Before we started this partnership with Webgrouth, we were averaging about 30,000 views. Now, it's well over 200,000. It's the perfect solution for us."
+  },
+  {
+    name: "Jessica Miller",
+    role: "SEO Lead at TechStream",
+    img: "https://i.pravatar.cc/150?u=jess",
+    text: "The quality of backlinks is unmatched. We tried many marketplaces, but the transparency here is what kept us coming back. Our DR went from 12 to 45 in just six months."
+  },
+  {
+    name: "Arslan Khalid",
+    role: "Founder of Growth-Hacker",
+    img: "https://i.pravatar.cc/150?u=arslan",
+    text: "Simple, fast, and effective. Webgrouth is now our primary tool for client outreach. Highly recommended for any serious SEO agency."
+  },
+  {
+    name: "David Chen",
+    role: "Marketing Director",
+    img: "https://i.pravatar.cc/150?u=david",
+    text: "Great experience! The dashboard is very intuitive and the site metrics are always up to date. Excellent support team too."
+  }
+];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="Webgrouth | Professional SEO Marketplace" description="Scale Authority Efficiently" />
 	</head>
-	<body>
+	<body class="bg-white">
 		<Header />
+
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<!-- 1. COMPACT HERO SECTION -->
+			<section class="relative pt-24 pb-12 lg:pt-32 lg:pb-16 bg-white overflow-hidden">
+				<div class="max-w-7xl mx-auto px-6">
+					<div class="flex flex-col lg:flex-row items-center gap-10">
+						<div class="lg:w-1/2 text-center lg:text-left reveal">
+							<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight tracking-tighter mb-6">
+								Scale Authority With <br/>
+								<span class="text-[#2563EB]">Powerful</span> Guest Posts
+							</h1>
+							<p class="text-lg text-slate-500 mb-8 max-w-lg mx-auto lg:mx-0">
+								Access 100,000+ vetted websites. Build authority and grow rankings with our premium marketplace.
+							</p>
+							<div class="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
+								<a href="/marketplace" class="bg-[#2563EB] text-white px-8 py-3.5 rounded-xl font-bold hover:bg-[#1d4ed8] transition-all shadow-lg">
+									Browse Marketplace
+								</a>
+								<a href="/contact" class="bg-white text-slate-900 border border-slate-200 px-8 py-3.5 rounded-xl font-bold hover:bg-slate-50 transition-all">
+									Talk to Expert
+								</a>
+							</div>
+						</div>
+						<div class="lg:w-1/2 reveal">
+							<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="rounded-3xl shadow-xl border border-slate-100 max-h-[350px] w-full object-cover" alt="Professional SEO Work" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 2. SCROLLING BRANDS BAR -->
+			<section class="py-10 bg-slate-50 border-y border-slate-100 overflow-hidden">
+				<div class="flex whitespace-nowrap animate-marquee">
+					{[1, 2].map(() => (
+						<div class="flex items-center gap-20 px-10">
+							<span class="text-2xl font-black text-slate-300 uppercase italic">Forbes</span>
+							<span class="text-2xl font-black text-slate-300 uppercase italic">MSN News</span>
+							<span class="text-2xl font-black text-slate-300 uppercase italic">Business Insider</span>
+							<span class="text-2xl font-black text-slate-300 uppercase italic">Entrepreneur</span>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<!-- 3. INVENTORY PREVIEW -->
+			<section class="py-20 bg-white">
+				<div class="max-w-7xl mx-auto px-6">
+					<h2 class="text-3xl font-black mb-10 tracking-tight text-center">Premium Marketplace Inventory</h2>
+					<div class="overflow-x-auto rounded-2xl border border-slate-100 shadow-lg">
+						<table class="w-full text-left bg-white">
+							<thead class="bg-slate-50 border-b">
+								<tr class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+									<th class="px-8 py-4">Website</th>
+									<th>DA</th>
+									<th>Traffic</th>
+									<th>Price</th>
+									<th class="px-8 text-right">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{inventory.map((item) => (
+									<tr class="border-b border-slate-50 hover:bg-slate-50/50">
+										<td class="px-8 py-5 font-bold text-slate-800">{item.site}</td>
+										<td><span class="text-[#2563EB] font-bold">DA {item.da}</span></td>
+										<td class="font-bold text-slate-600">{item.traffic}+</td>
+										<td class="text-xl font-black text-[#2563EB]">{item.price}</td>
+										<td class="px-8 py-5 text-right"><button class="bg-[#10B981] text-white px-5 py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-[#00a35c]">Order</button></td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+
+			<!-- 4. MOZ-STYLE TESTIMONIALS (AUTO-MOVING) -->
+			<section class="py-24 bg-white overflow-hidden border-t border-slate-100">
+				<h2 class="text-center text-3xl font-black mb-16 tracking-tighter">Why marketers <span class="text-[#2563EB]">trust</span> Webgrouth Data</h2>
+				
+				<div class="flex animate-marquee-slow hover:pause">
+					{[...testimonials, ...testimonials].map((t) => (
+						<div class="flex-shrink-0 w-[500px] mx-6 bg-white border border-slate-100 p-10 rounded-[2rem] shadow-sm text-center flex flex-col items-center">
+							<img src={t.img} class="w-20 h-20 rounded-full mb-6 grayscale" alt={t.name} />
+							<h4 class="font-bold text-lg text-slate-900 mb-1">{t.name}</h4>
+							<p class="text-sm text-[#2563EB] font-medium mb-4">{t.role}</p>
+							<div class="flex text-yellow-400 mb-6 text-sm">★★★★★</div>
+							<p class="text-slate-600 leading-relaxed italic text-base">
+								{t.text}
+							</p>
+						</div>
+					))}
+				</div>
+			</section>
 		</main>
+
 		<Footer />
+
+		<style>
+			@keyframes marquee {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
+			.animate-marquee {
+				display: flex;
+				width: fit-content;
+				animation: marquee 25s linear infinite;
+			}
+			.animate-marquee-slow {
+				display: flex;
+				width: fit-content;
+				animation: marquee 50s linear infinite;
+			}
+			.hover\:pause:hover {
+				animation-play-state: paused;
+			}
+			.reveal {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: all 0.8s ease-out;
+			}
+			.reveal.active {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		</style>
+
+		<script>
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) entry.target.classList.add('active');
+				});
+			});
+			document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+		</script>
 	</body>
 </html>
